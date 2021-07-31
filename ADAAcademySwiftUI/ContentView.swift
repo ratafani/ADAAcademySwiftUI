@@ -1,80 +1,66 @@
 //
 //  ContentView.swift
-//  ADAAcademySwiftUI
+//  SwiftUITutorial
 //
-//  Created by Local Administrator on 31/07/21.
+//  Created by Agatha Rachmat on 07/07/21.
 //
 
 import SwiftUI
-import CoreData
+
+struct Song: Identifiable {
+    var id = UUID()
+    var singer: String
+    var title: String
+    
+}
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    var playlist = [Song(singer: "U2", title: "Elevation"), Song(singer: "Ciara", title: "Level up")]
+    
+    @State private var titleSongPlayed : String = ""
+    @State private var isPlayingSomething : Bool = false
+    @State private var userName : String = ""
+    
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+        NavigationView(){
+            VStack{
+                HStack{
+                    Button(action: {
+                        isPlayingSomething.toggle()
+                    }, label: {
+                        if isPlayingSomething{
+                            Image(systemName: "pause.circle.fill").font(.system(size: 56)).foregroundColor(.blue)
+                        }else{
+                            Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundColor(.green)
+                        }
+                        
+                    })
+                    Text(titleSongPlayed)
+                }.frame(width: 350, height: 100, alignment: .leading)
+                TextField("Siapa namamu?", text: $userName).padding()
+                List(playlist){ i in
+                    SongCellCustom(song: i, titleSongPlayed: $titleSongPlayed, isPlayingSomething: $isPlayingSomething)
+                }
+            }.navigationBarTitle(Text(userName)).foregroundColor(.gray)
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+struct SongCellCustom : View {
+    let song : Song
+    
+    @Binding var titleSongPlayed : String
+    @Binding var isPlayingSomething : Bool
+    var body: some View{
+        Button {
+            titleSongPlayed = song.singer + " - " + song.title
+            isPlayingSomething = true
+        } label: {
+            HStack{
+                Text(song.singer + " - " + song.title)
+                Spacer()
+                Image(systemName: "play.circle.fill").font(.system(size: 30)).foregroundColor(.green)
+            }
+        }
     }
 }
