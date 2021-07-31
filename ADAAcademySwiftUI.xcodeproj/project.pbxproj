@@ -13,6 +13,7 @@
 		9BA6CD7626B4F55F00BC12AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7526B4F55F00BC12AE /* Preview Assets.xcassets */; };
 		9BA6CD7826B4F55F00BC12AE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7726B4F55F00BC12AE /* Persistence.swift */; };
 		9BA6CD7B26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7926B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld */; };
+		9BA6CD8326B4FCC600BC12AE /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CD8226B4FCC600BC12AE /* SongModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		9BA6CD7726B4F55F00BC12AE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9BA6CD7A26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ADAAcademySwiftUI.xcdatamodel; sourceTree = "<group>"; };
 		9BA6CD7C26B4F55F00BC12AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA6CD8226B4FCC600BC12AE /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		9BA6CD8426B4FEE000BC12AE /* ADAAcademySwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADAAcademySwiftUI.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +59,10 @@
 		9BA6CD6D26B4F55E00BC12AE /* ADAAcademySwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BA6CD8426B4FEE000BC12AE /* ADAAcademySwiftUI.entitlements */,
 				9BA6CD6E26B4F55E00BC12AE /* ADAAcademySwiftUIApp.swift */,
 				9BA6CD7026B4F55E00BC12AE /* ContentView.swift */,
+				9BA6CD8226B4FCC600BC12AE /* SongModel.swift */,
 				9BA6CD7226B4F55F00BC12AE /* Assets.xcassets */,
 				9BA6CD7726B4F55F00BC12AE /* Persistence.swift */,
 				9BA6CD7C26B4F55F00BC12AE /* Info.plist */,
@@ -145,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BA6CD7826B4F55F00BC12AE /* Persistence.swift in Sources */,
+				9BA6CD8326B4FCC600BC12AE /* SongModel.swift in Sources */,
 				9BA6CD7126B4F55E00BC12AE /* ContentView.swift in Sources */,
 				9BA6CD6F26B4F55E00BC12AE /* ADAAcademySwiftUIApp.swift in Sources */,
 				9BA6CD7B26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld in Sources */,
@@ -275,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ADAAcademySwiftUI/ADAAcademySwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ADAAcademySwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 52RX5R54N7;
@@ -297,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ADAAcademySwiftUI/ADAAcademySwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ADAAcademySwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 52RX5R54N7;

@@ -7,41 +7,40 @@
 
 import SwiftUI
 
-struct Song: Identifiable {
-    var id = UUID()
-    var singer: String
-    var title: String
-    
-}
 
 struct ContentView: View {
-    var playlist = [Song(singer: "U2", title: "Elevation"), Song(singer: "Ciara", title: "Level up")]
-    
-    @State private var titleSongPlayed : String = ""
-    @State private var isPlayingSomething : Bool = false
-    @State private var userName : String = ""
+    @StateObject var songModel = SongModel()
     
     var body: some View {
         NavigationView(){
             VStack{
-                HStack{
-                    Button(action: {
-                        isPlayingSomething.toggle()
-                    }, label: {
-                        if isPlayingSomething{
-                            Image(systemName: "pause.circle.fill").font(.system(size: 56)).foregroundColor(.blue)
-                        }else{
-                            Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundColor(.green)
-                        }
-                        
-                    })
-                    Text(titleSongPlayed)
-                }.frame(width: 350, height: 100, alignment: .leading)
-                TextField("Siapa namamu?", text: $userName).padding()
-                List(playlist){ i in
-                    SongCellCustom(song: i, titleSongPlayed: $titleSongPlayed, isPlayingSomething: $isPlayingSomething)
+                playerView.frame(width: 350, height: 100, alignment: .leading)
+                TextField("Siapa namamu?", text: $songModel.userName).padding()
+                songListView
+            }.navigationBarTitle(Text(songModel.userName)).foregroundColor(.gray)
+        }
+    }
+    
+    
+    var playerView : some View{
+        HStack{
+            Button(action: {
+                songModel.isPlayingSomething.toggle()
+            }, label: {
+                if songModel.isPlayingSomething{
+                    Image(systemName: "pause.circle.fill").font(.system(size: 56)).foregroundColor(.blue)
+                }else{
+                    Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundColor(.green)
                 }
-            }.navigationBarTitle(Text(userName)).foregroundColor(.gray)
+                
+            })
+            Text(songModel.lastSongPLayed)
+        }
+    }
+    
+    var songListView : some View{
+        List(songModel.playlist){ i in
+            SongCellCustom(song: i, titleSongPlayed: $songModel.lastSongPLayed, isPlayingSomething: $songModel.isPlayingSomething)
         }
     }
 }
