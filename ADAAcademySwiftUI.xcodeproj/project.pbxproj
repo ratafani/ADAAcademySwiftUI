@@ -13,7 +13,40 @@
 		9BA6CD7626B4F55F00BC12AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7526B4F55F00BC12AE /* Preview Assets.xcassets */; };
 		9BA6CD7826B4F55F00BC12AE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7726B4F55F00BC12AE /* Persistence.swift */; };
 		9BA6CD7B26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CD7926B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld */; };
+		9BA6CDC026B7DA0100BC12AE /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CDBF26B7DA0100BC12AE /* SongModel.swift */; };
+		9BA6CDC926B7DC3D00BC12AE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA6CDC826B7DC3D00BC12AE /* WidgetKit.framework */; };
+		9BA6CDCB26B7DC3D00BC12AE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA6CDCA26B7DC3D00BC12AE /* SwiftUI.framework */; };
+		9BA6CDCE26B7DC3D00BC12AE /* SepotipaiWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CDCD26B7DC3D00BC12AE /* SepotipaiWidget.swift */; };
+		9BA6CDD126B7DC3F00BC12AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6CDD026B7DC3F00BC12AE /* Assets.xcassets */; };
+		9BA6CDD326B7DC3F00BC12AE /* SepotipaiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CDCF26B7DC3D00BC12AE /* SepotipaiWidget.intentdefinition */; };
+		9BA6CDD426B7DC3F00BC12AE /* SepotipaiWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CDCF26B7DC3D00BC12AE /* SepotipaiWidget.intentdefinition */; };
+		9BA6CDD726B7DC3F00BC12AE /* SepotipaiWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9BA6CDC626B7DC3D00BC12AE /* SepotipaiWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9BA6CDDD26B7DC8C00BC12AE /* SongModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6CDBF26B7DA0100BC12AE /* SongModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9BA6CDD526B7DC3F00BC12AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BA6CD6326B4F55E00BC12AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BA6CDC526B7DC3D00BC12AE;
+			remoteInfo = SepotipaiWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9BA6CDDB26B7DC3F00BC12AE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9BA6CDD726B7DC3F00BC12AE /* SepotipaiWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9BA6CD6B26B4F55E00BC12AE /* ADAAcademySwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADAAcademySwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +57,16 @@
 		9BA6CD7726B4F55F00BC12AE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9BA6CD7A26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ADAAcademySwiftUI.xcdatamodel; sourceTree = "<group>"; };
 		9BA6CD7C26B4F55F00BC12AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA6CDBF26B7DA0100BC12AE /* SongModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongModel.swift; sourceTree = "<group>"; };
+		9BA6CDC126B7DAA600BC12AE /* ADAAcademySwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADAAcademySwiftUI.entitlements; sourceTree = "<group>"; };
+		9BA6CDC626B7DC3D00BC12AE /* SepotipaiWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SepotipaiWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BA6CDC826B7DC3D00BC12AE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9BA6CDCA26B7DC3D00BC12AE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		9BA6CDCD26B7DC3D00BC12AE /* SepotipaiWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SepotipaiWidget.swift; sourceTree = "<group>"; };
+		9BA6CDCF26B7DC3D00BC12AE /* SepotipaiWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SepotipaiWidget.intentdefinition; sourceTree = "<group>"; };
+		9BA6CDD026B7DC3F00BC12AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BA6CDD226B7DC3F00BC12AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BA6CDDC26B7DC5300BC12AE /* SepotipaiWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SepotipaiWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,13 +77,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BA6CDC326B7DC3D00BC12AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BA6CDCB26B7DC3D00BC12AE /* SwiftUI.framework in Frameworks */,
+				9BA6CDC926B7DC3D00BC12AE /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9BA6CD6226B4F55E00BC12AE = {
 			isa = PBXGroup;
 			children = (
+				9BA6CDDC26B7DC5300BC12AE /* SepotipaiWidgetExtension.entitlements */,
 				9BA6CD6D26B4F55E00BC12AE /* ADAAcademySwiftUI */,
+				9BA6CDCC26B7DC3D00BC12AE /* SepotipaiWidget */,
+				9BA6CDC726B7DC3D00BC12AE /* Frameworks */,
 				9BA6CD6C26B4F55E00BC12AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA6CD6B26B4F55E00BC12AE /* ADAAcademySwiftUI.app */,
+				9BA6CDC626B7DC3D00BC12AE /* SepotipaiWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,8 +112,10 @@
 		9BA6CD6D26B4F55E00BC12AE /* ADAAcademySwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				9BA6CDC126B7DAA600BC12AE /* ADAAcademySwiftUI.entitlements */,
 				9BA6CD6E26B4F55E00BC12AE /* ADAAcademySwiftUIApp.swift */,
 				9BA6CD7026B4F55E00BC12AE /* ContentView.swift */,
+				9BA6CDBF26B7DA0100BC12AE /* SongModel.swift */,
 				9BA6CD7226B4F55F00BC12AE /* Assets.xcassets */,
 				9BA6CD7726B4F55F00BC12AE /* Persistence.swift */,
 				9BA6CD7C26B4F55F00BC12AE /* Info.plist */,
@@ -75,6 +133,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		9BA6CDC726B7DC3D00BC12AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6CDC826B7DC3D00BC12AE /* WidgetKit.framework */,
+				9BA6CDCA26B7DC3D00BC12AE /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BA6CDCC26B7DC3D00BC12AE /* SepotipaiWidget */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6CDCD26B7DC3D00BC12AE /* SepotipaiWidget.swift */,
+				9BA6CDCF26B7DC3D00BC12AE /* SepotipaiWidget.intentdefinition */,
+				9BA6CDD026B7DC3F00BC12AE /* Assets.xcassets */,
+				9BA6CDD226B7DC3F00BC12AE /* Info.plist */,
+			);
+			path = SepotipaiWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,15 +163,34 @@
 				9BA6CD6726B4F55E00BC12AE /* Sources */,
 				9BA6CD6826B4F55E00BC12AE /* Frameworks */,
 				9BA6CD6926B4F55E00BC12AE /* Resources */,
+				9BA6CDDB26B7DC3F00BC12AE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9BA6CDD626B7DC3F00BC12AE /* PBXTargetDependency */,
 			);
 			name = ADAAcademySwiftUI;
 			productName = ADAAcademySwiftUI;
 			productReference = 9BA6CD6B26B4F55E00BC12AE /* ADAAcademySwiftUI.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9BA6CDC526B7DC3D00BC12AE /* SepotipaiWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BA6CDD826B7DC3F00BC12AE /* Build configuration list for PBXNativeTarget "SepotipaiWidgetExtension" */;
+			buildPhases = (
+				9BA6CDC226B7DC3D00BC12AE /* Sources */,
+				9BA6CDC326B7DC3D00BC12AE /* Frameworks */,
+				9BA6CDC426B7DC3D00BC12AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SepotipaiWidgetExtension;
+			productName = SepotipaiWidgetExtension;
+			productReference = 9BA6CDC626B7DC3D00BC12AE /* SepotipaiWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -105,6 +202,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					9BA6CD6A26B4F55E00BC12AE = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					9BA6CDC526B7DC3D00BC12AE = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -123,6 +223,7 @@
 			projectRoot = "";
 			targets = (
 				9BA6CD6A26B4F55E00BC12AE /* ADAAcademySwiftUI */,
+				9BA6CDC526B7DC3D00BC12AE /* SepotipaiWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +238,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BA6CDC426B7DC3D00BC12AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BA6CDD126B7DC3F00BC12AE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -144,14 +253,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA6CDD426B7DC3F00BC12AE /* SepotipaiWidget.intentdefinition in Sources */,
 				9BA6CD7826B4F55F00BC12AE /* Persistence.swift in Sources */,
+				9BA6CDC026B7DA0100BC12AE /* SongModel.swift in Sources */,
 				9BA6CD7126B4F55E00BC12AE /* ContentView.swift in Sources */,
 				9BA6CD6F26B4F55E00BC12AE /* ADAAcademySwiftUIApp.swift in Sources */,
 				9BA6CD7B26B4F55F00BC12AE /* ADAAcademySwiftUI.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9BA6CDC226B7DC3D00BC12AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BA6CDDD26B7DC8C00BC12AE /* SongModel.swift in Sources */,
+				9BA6CDD326B7DC3F00BC12AE /* SepotipaiWidget.intentdefinition in Sources */,
+				9BA6CDCE26B7DC3D00BC12AE /* SepotipaiWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9BA6CDD626B7DC3F00BC12AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BA6CDC526B7DC3D00BC12AE /* SepotipaiWidgetExtension */;
+			targetProxy = 9BA6CDD526B7DC3F00BC12AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9BA6CD7D26B4F55F00BC12AE /* Debug */ = {
@@ -273,8 +402,10 @@
 		9BA6CD8026B4F55F00BC12AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ADAAcademySwiftUI/ADAAcademySwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ADAAcademySwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 52RX5R54N7;
@@ -295,8 +426,10 @@
 		9BA6CD8126B4F55F00BC12AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ADAAcademySwiftUI/ADAAcademySwiftUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ADAAcademySwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 52RX5R54N7;
@@ -309,6 +442,50 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ada.tafa.ADAAcademySwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9BA6CDD926B7DC3F00BC12AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SepotipaiWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52RX5R54N7;
+				INFOPLIST_FILE = SepotipaiWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ada.tafa.ADAAcademySwiftUI.SepotipaiWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BA6CDDA26B7DC3F00BC12AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SepotipaiWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 52RX5R54N7;
+				INFOPLIST_FILE = SepotipaiWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ada.tafa.ADAAcademySwiftUI.SepotipaiWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -331,6 +508,15 @@
 			buildConfigurations = (
 				9BA6CD8026B4F55F00BC12AE /* Debug */,
 				9BA6CD8126B4F55F00BC12AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BA6CDD826B7DC3F00BC12AE /* Build configuration list for PBXNativeTarget "SepotipaiWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BA6CDD926B7DC3F00BC12AE /* Debug */,
+				9BA6CDDA26B7DC3F00BC12AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

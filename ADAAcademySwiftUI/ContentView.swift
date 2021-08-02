@@ -6,42 +6,38 @@
 //
 
 import SwiftUI
-
-struct Song: Identifiable {
-    var id = UUID()
-    var singer: String
-    var title: String
-    
-}
+import WidgetKit
 
 struct ContentView: View {
-    var playlist = [Song(singer: "U2", title: "Elevation"), Song(singer: "Ciara", title: "Level up")]
     
-    @State private var titleSongPlayed : String = ""
-    @State private var isPlayingSomething : Bool = false
-    @State private var userName : String = ""
+    @StateObject var songModel = SongModel()
+    @AppStorage("song", store: UserDefaults(suiteName: "group.sepotipaiUD")) var songData : Data = Data()
     
     var body: some View {
         NavigationView(){
             VStack{
                 HStack{
                     Button(action: {
-                        isPlayingSomething.toggle()
+                        songModel.isPlayingSomething.toggle()
                     }, label: {
-                        if isPlayingSomething{
+                        if songModel.isPlayingSomething{
                             Image(systemName: "pause.circle.fill").font(.system(size: 56)).foregroundColor(.blue)
                         }else{
                             Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundColor(.green)
                         }
                         
                     })
-                    Text(titleSongPlayed)
+                    Text(songModel.titleSongPlayed)
                 }.frame(width: 350, height: 100, alignment: .leading)
-                TextField("Siapa namamu?", text: $userName).padding()
-                List(playlist){ i in
-                    SongCellCustom(song: i, titleSongPlayed: $titleSongPlayed, isPlayingSomething: $isPlayingSomething)
+                TextField("Siapa namamu?", text: $songModel.userName).padding()
+                List(songModel.playlist){ i in
+                    SongCellCustom(song: i, titleSongPlayed: $songModel.titleSongPlayed, isPlayingSomething: $songModel.isPlayingSomething)
                 }
-            }.navigationBarTitle(Text(userName)).foregroundColor(.gray)
+            }.navigationBarTitle(Text(songModel.userName)).foregroundColor(.gray)
+        }.onAppear{
+            guard let lastPlay = try? JSONDecoder().decode(Song.self, from: songData)else{return}
+            
+            songModel.titleSongPlayed = lastPlay.singer + " - " + lastPlay.title
         }
     }
 }
@@ -51,10 +47,13 @@ struct SongCellCustom : View {
     
     @Binding var titleSongPlayed : String
     @Binding var isPlayingSomething : Bool
+    @AppStorage("song", store: UserDefaults(suiteName: "group.sepotipaiUD")) var songData : Data = Data()
+    
     var body: some View{
         Button {
             titleSongPlayed = song.singer + " - " + song.title
             isPlayingSomething = true
+            saveLastPlay()
         } label: {
             HStack{
                 Text(song.singer + " - " + song.title)
@@ -62,5 +61,14 @@ struct SongCellCustom : View {
                 Image(systemName: "play.circle.fill").font(.system(size: 30)).foregroundColor(.green)
             }
         }
+    }
+    
+    func saveLastPlay(){
+        guard let lastPlay = try? JSONEncoder().encode(song) else {return}
+        
+        songData = lastPlay
+        print("sudah tersimpan")
+        
+        WidgetCenter.shared.reloadTimelines(ofKind: "SepotipaiWidget")
     }
 }
