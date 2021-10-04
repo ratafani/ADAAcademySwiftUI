@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 @main
 struct ADAAcademySwiftUIApp: App {
     let persistenceController = PersistenceController.shared

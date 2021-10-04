@@ -1,66 +1,81 @@
 //
 //  ContentView.swift
-//  SwiftUITutorial
+//  Canvas
 //
-//  Created by Agatha Rachmat on 07/07/21.
+//  Created by Local Administrator on 27/09/21.
 //
 
 import SwiftUI
 
-struct Song: Identifiable {
-    var id = UUID()
-    var singer: String
-    var title: String
-    
-}
-
+@available(iOS 15.0, *)
 struct ContentView: View {
-    var playlist = [Song(singer: "U2", title: "Elevation"), Song(singer: "Ciara", title: "Level up")]
     
-    @State private var titleSongPlayed : String = ""
-    @State private var isPlayingSomething : Bool = false
-    @State private var userName : String = ""
+    @State var lines : [Line] = []
+    @State var deletedLine : [Line] = []
+    
+    @State var selectedColor : Color = .black
+    @State var selectedWidth : CGFloat = 1
     
     var body: some View {
-        NavigationView(){
-            VStack{
-                HStack{
-                    Button(action: {
-                        isPlayingSomething.toggle()
-                    }, label: {
-                        if isPlayingSomething{
-                            Image(systemName: "pause.circle.fill").font(.system(size: 56)).foregroundColor(.blue)
-                        }else{
-                            Image(systemName: "play.circle.fill").font(.system(size: 56)).foregroundColor(.green)
-                        }
-                        
-                    })
-                    Text(titleSongPlayed)
-                }.frame(width: 350, height: 100, alignment: .leading)
-                TextField("Siapa namamu?", text: $userName).padding()
-                List(playlist){ i in
-                    SongCellCustom(song: i, titleSongPlayed: $titleSongPlayed, isPlayingSomething: $isPlayingSomething)
+        VStack {
+            ColorPicker("Select Color", selection: $selectedColor)
+            Slider(value: $selectedWidth, in: 0...10)
+            HStack{
+                Button("Undo"){
+                    dump(lines)
+                    guard let last = lines.last else {
+                        return
+                    }
+                    deletedLine.append(last)
+                    lines.removeLast()
                 }
-            }.navigationBarTitle(Text(userName)).foregroundColor(.gray)
+                Button("Redo"){
+                    guard let last = deletedLine.last else {
+                        return
+                    }
+                    lines.append(last)
+                    deletedLine.removeLast()
+                }
+            }
+            Canvas{ context,size in
+                for line in lines{
+                    var path = Path()
+                    path.addLines(line.points)
+                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
+                }
+            }
+            .gesture(
+                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                    .onChanged({ value in
+                        let loc = value.location
+                        
+                        if value.translation.width + value.translation.height == 0{
+                            lines.append(
+                                Line(points: [loc], color: selectedColor, lineWidth: selectedWidth)
+                            )
+                            deletedLine = []
+                        }else{
+                            let lastIndex = lines.count - 1
+                            lines[lastIndex].points.append(loc)
+                        }
+                    })
+            )
+            
         }
     }
 }
 
-struct SongCellCustom : View {
-    let song : Song
-    
-    @Binding var titleSongPlayed : String
-    @Binding var isPlayingSomething : Bool
-    var body: some View{
-        Button {
-            titleSongPlayed = song.singer + " - " + song.title
-            isPlayingSomething = true
-        } label: {
-            HStack{
-                Text(song.singer + " - " + song.title)
-                Spacer()
-                Image(systemName: "play.circle.fill").font(.system(size: 30)).foregroundColor(.green)
-            }
-        }
+
+struct Line {
+    var points : [CGPoint] = []
+    var color : Color = .blue
+    var lineWidth : CGFloat = 1
+}
+
+
+@available(iOS 15.0, *)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
